@@ -1,0 +1,30 @@
+name: Validate
+
+# Skeleton-only lint. No plan/apply lane, no ARC deploy lane, no core
+# checkout exists until TIN-2196 clears (see AGENTS.md). This job validates
+# only that tracked YAML parses and tracked markdown links resolve.
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: YAML syntax
+        run: pipx run yamllint --strict --format github .
+
+      - name: Markdown link check
+        run: |
+          set -euo pipefail
+          find . -name '*.md' -not -path './.git/*' -print0 \
+            | xargs -0 -n1 npx --yes markdown-link-check --quiet

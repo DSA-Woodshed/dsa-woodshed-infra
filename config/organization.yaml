@@ -1,0 +1,56 @@
+# Identity skeleton for the DSA-Woodshed org tenant, shaped after the GF
+# consumer pattern (Great-Falls-Tool-Bus is the reference overlay this file
+# mirrors at skeleton fidelity — see AGENTS.md for the boundary rules).
+#
+# GATED: TIN-2196 (GF consumer-registry v2), itself gated on TIN-3120.
+# Every field below is either a known-today public fact or an explicit
+# PLACEHOLDER. Nothing here is consumed by a live plan/apply lane yet.
+
+schema_version: 1
+overlay_kind: implementation  # becomes authoritative once core.repository below is populated at TIN-2196
+
+owner:
+  slug: dsa-woodshed
+  display_name: The DSA Woodshed
+  forge: github
+  account_kind: organization
+  repository: DSA-Woodshed/dsa-woodshed-infra
+  github_config_url: https://github.com/DSA-Woodshed  # org-scoped ARC registration target, once an App exists
+  github_app_secret_name: ""  # PLACEHOLDER — becomes the provisioned App's
+                               # cluster secret name (github-app-secret-dsa-woodshed
+                               # pattern) once docs/github-app-manifest.md's App
+                               # is created and installed; name only, never a value
+
+core:
+  repository: ""  # PLACEHOLDER — the pinned GF-pattern core repository this
+                   # tenant tracks; filled at TIN-2196 enrollment
+  module_name: ""  # PLACEHOLDER — filled alongside core.repository
+  pinned_commit: ""  # PLACEHOLDER — the single commit pin this file,
+                      # any MODULE.bazel, and every workflow GF_CORE_REF
+                      # would share; one pin everywhere, no drift
+
+substrate:
+  cluster:
+    name: ""  # PLACEHOLDER — GATED: TIN-2196; no cluster context is attached to this tenant today
+    context: ""  # PLACEHOLDER — filled alongside cluster.name
+    arc_controller_owner: ""  # PLACEHOLDER — the shared ARC controller owner, decided at enrollment
+  state_backend:
+    type: ""  # PLACEHOLDER — backend kind, decided at enrollment
+    bucket: ""  # PLACEHOLDER
+    key_prefix: dsa-woodshed-infra  # the one substrate value already fixed: this repo's own state key prefix, wherever the backend lands
+    endpoint: ""  # PLACEHOLDER
+  caches:
+    attic_server: ""  # PLACEHOLDER
+    attic_cache: ""  # PLACEHOLDER
+    attic_public_key: ""  # PLACEHOLDER
+    bazel_cache_endpoint: ""  # PLACEHOLDER
+    bazel_executor_endpoint: ""  # PLACEHOLDER — RBE stays target-scoped and opt-in per the GF pattern; never assumed by default
+
+runner_contract:
+  shared_labels:
+    - tinyland-nix  # the only label this tenant would request at a conservative first posture (GFTB precedent)
+  forbidden:
+    - repo-specific runner labels
+    - project identity labels
+    - org-identity runner labels        # e.g. "dsa-woodshed-*" or "woodshed-*" — never; this tenant registers as an ARC owner, not a runner brand
+    - personal-account runner groups
