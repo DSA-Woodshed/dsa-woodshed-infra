@@ -1,22 +1,26 @@
 # dsa-woodshed-infra Agent Guidance
 
 This repository is the public DSA-Woodshed organization implementation
-overlay skeleton, on the GF consumer pattern. **Status: SKELETON, gated on
-TIN-2196 (GF consumer-registry v2), itself gated on TIN-3120.** Nothing here
-is live. Do not add runner wiring, tofu stacks with real backends, or GF
-consumer-registry entries ahead of that gate.
+overlay skeleton, shaped for the GF consumer pattern. **Status:
+NON-LOAD-BEARING SKELETON, gated on TIN-2196 (GF consumer-registry v2),
+itself gated on TIN-3120.** The `2a033772` baseline is not empty, but nothing
+here is live or authoritative infrastructure. Do not add runner wiring, tofu
+stacks with real backends, or GF consumer-registry entries ahead of that
+gate.
 
 ## Overlay, not ownership (TIN-1985 — verbatim doctrine)
 
 Application repositories are **not** transferred into this org. This overlay
 never owns or claims `Jesssullivan/dsa-study-packet` or
-`Jesssullivan/dsa-woodshed.space`; they remain GF *consumers* under their
-current owner. This overlay holds only the org tenant's own implementation
-facts (App registration, runner enrollment config, apply-plane docs). Do not
-propose repo transfers, do not add this overlay as a listed owner of either
-app repo, and do not dual-list a consumer here and at the org tenant — GF
-exchange precedence is spoke > consumer > org, and dual-listing is a
-documented footgun.
+`Jesssullivan/dsa-woodshed.space`; they remain application spokes under their
+current owner and are only potential per-repo GF consumers. Do not describe
+either repository as a formally enrolled GF consumer until registry and
+enrollment proof exists. This overlay holds only the org tenant's own future
+implementation facts (App registration, runner enrollment config, apply-plane
+docs). Do not propose repo transfers, do not add this overlay as a listed
+owner of either app repo, and, once enrollment opens, do not dual-list a
+consumer here and at the org tenant — GF exchange precedence is spoke >
+consumer > org, and dual-listing is a documented footgun.
 
 ## Hard rules
 
@@ -40,6 +44,10 @@ documented footgun.
 - No workflow in `.github/workflows/` does anything but validate (lint /
   link-check). No plan/apply lane, no ARC deploy lane, exists until
   TIN-2196 clears.
+- A site workflow being picked up by ARC on the shared `tinyland-docker`
+  capability proves only runner pickup. It is not proof of GF
+  consumer-registry enrollment, cache use, or RBE use for either application
+  spoke.
 - **Coordinate, don't reshape** the GF core consumer-registry. Registry
   schema and enrollment-eligibility rules are core-product-owned surface.
   This overlay proposes registry entries via PR when it is time; it does

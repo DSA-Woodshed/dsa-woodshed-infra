@@ -1,9 +1,9 @@
 # dsa-woodshed-infra
 
-> **SKELETON** — gated on TIN-2196 (GF consumer-registry v2), itself gated
-> on TIN-3120. Nothing in this repository is live: no App, no runner, no
-> apply plane. This is a docs-and-config skeleton so enrollment does not
-> need to be rediscovered when the gates clear.
+> **NON-LOAD-BEARING SKELETON** — gated on TIN-2196 (GF consumer-registry
+> v2), itself gated on TIN-3120. The `2a033772` baseline is not empty: it
+> contains documentation and placeholder configuration. Nothing in it is
+> live infrastructure: no App, no runner, no apply plane.
 
 ## What this IS
 
@@ -17,14 +17,19 @@ owner-specific facts, never reusable product logic.
 ## What this IS NOT
 
 - **Not an owner of the application repos.** `Jesssullivan/dsa-study-packet`
-  and `Jesssullivan/dsa-woodshed.space` stay exactly where they are, as GF
-  *consumers*. This overlay never receives a repo transfer and never becomes
-  their home. **Overlay, not ownership** (prior estate overlay ruling,
-  TIN-1985) is this
+  and `Jesssullivan/dsa-woodshed.space` stay exactly where they are as
+  application spokes and potential per-repo GF consumers. Neither is a
+  formally enrolled GF consumer until registry and enrollment proof exists.
+  This overlay never receives a repo transfer and never becomes their home.
+  **Overlay, not ownership** (prior estate overlay ruling, TIN-1985) is this
   charter's spine — do not re-litigate it here.
 - **Not a runner product.** Reusable ARC/controller modules, capability
   labels, and runner images are owned upstream by the GF core product, not
   by this overlay.
+- **Not proof inferred from runner pickup.** A site workflow picked up by ARC
+  on shared `tinyland-docker` proves only runner pickup. It does not prove GF
+  consumer-registry enrollment, cache use, or RBE use for either application
+  spoke.
 - **No org-identity runner labels, ever.** Workflows in this org request
   shared `tinyland-*` capability labels only. A label like `woodshed-*` or
   `dsa-woodshed-*` is a forbidden shape regardless of provisioning state —
@@ -32,9 +37,9 @@ owner-specific facts, never reusable product logic.
 
 ## Current contract
 
-Nothing is populated yet. `config/organization.yaml` carries the identity
-skeleton — known-today public facts plus explicit placeholders for
-everything that depends on TIN-2196's exit. See:
+No load-bearing infrastructure is populated. `config/organization.yaml`
+carries the identity skeleton — known-today public facts plus explicit
+placeholders for everything that depends on TIN-2196's exit. See:
 
 - [`AGENTS.md`](AGENTS.md) — the boundary rules an agent must honor here.
 - [`config/organization.yaml`](config/organization.yaml) — the identity
