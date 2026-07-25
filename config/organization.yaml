@@ -37,14 +37,18 @@ substrate:
   state_backend:
     type: ""  # PLACEHOLDER — backend kind, decided at enrollment
     bucket: ""  # PLACEHOLDER
-    key_prefix: dsa-woodshed-infra  # the one substrate value already fixed: this repo's own state key prefix, wherever the backend lands
+    # the one substrate value already fixed: this repo's own state key
+    # prefix, wherever the backend lands
+    key_prefix: dsa-woodshed-infra
     endpoint: ""  # PLACEHOLDER
   caches:
     attic_server: ""  # PLACEHOLDER
     attic_cache: ""  # PLACEHOLDER
     attic_public_key: ""  # PLACEHOLDER
     bazel_cache_endpoint: ""  # PLACEHOLDER
-    bazel_executor_endpoint: ""  # PLACEHOLDER — RBE stays target-scoped and opt-in per the GF pattern; never assumed by default
+    # PLACEHOLDER - RBE stays target-scoped and opt-in per the GF
+    # pattern; never assumed by default
+    bazel_executor_endpoint: ""
 
 runner_contract:
   shared_labels:
@@ -52,5 +56,7 @@ runner_contract:
   forbidden:
     - repo-specific runner labels
     - project identity labels
-    - org-identity runner labels        # e.g. "dsa-woodshed-*" or "woodshed-*" — never; this tenant registers as an ARC owner, not a runner brand
+    # e.g. "dsa-woodshed-*" or "woodshed-*" - never; this tenant
+    # registers as an ARC owner, not a runner brand
+    - org-identity runner labels
     - personal-account runner groups
