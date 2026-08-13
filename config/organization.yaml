@@ -7,7 +7,10 @@
 # PLACEHOLDER. Nothing here is consumed by a live plan/apply lane yet.
 
 schema_version: 1
-overlay_kind: implementation  # becomes authoritative once core.repository below is populated at TIN-2196
+# This file becomes authoritative for populated tenant implementation facts
+# only in a separately reviewed enrollment revision after TIN-2196. Ticket
+# state alone does not activate placeholders or unprovisioned facts.
+overlay_kind: implementation
 
 owner:
   slug: dsa-woodshed

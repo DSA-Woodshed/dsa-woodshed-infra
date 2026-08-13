@@ -5,7 +5,7 @@
 > contains documentation and placeholder configuration. Nothing in it is
 > live infrastructure: no App, no runner, no apply plane.
 
-## What this IS
+## What this is
 
 The org-tenant **implementation overlay** for The DSA Woodshed, on the same
 GF consumer pattern as the estate's other owner overlays (Great-Falls-Tool-Bus
@@ -14,22 +14,28 @@ provisioned, this repo will hold The DSA Woodshed's own GitHub App
 registration facts, ARC/runner enrollment config, and apply-plane docs —
 owner-specific facts, never reusable product logic.
 
-## What this IS NOT
+## What this is not
 
-- **Not an owner of the application repos.** `Jesssullivan/dsa-study-packet`
-  and `Jesssullivan/dsa-woodshed.space` stay exactly where they are as
-  application spokes and potential per-repo GF consumers. Neither is a
-  formally enrolled GF consumer until registry and enrollment proof exists.
-  This overlay never receives a repo transfer and never becomes their home.
-  **Overlay, not ownership** (prior estate overlay ruling, TIN-1985) is this
-  charter's spine — do not re-litigate it here.
+- **Not a product authority.** The `DSA-Woodshed` organization is the planned
+  future home of `dsa-study-packet` and `dsa-woodshed.space`, after each
+  transfer gate passes. The public direction and durability boundary are
+  recorded in [issue #4](https://github.com/DSA-Woodshed/dsa-woodshed-infra/issues/4).
+  It grants no transfer permission: every durability box must be complete and
+  the repository administrator with transfer authority must approve each
+  action-time cutover separately.
+  This overlay does not own their code, content, rendering, or roadmap state.
+  **Overlay, not product authority** is the charter's spine.
 - **Not a runner product.** Reusable ARC/controller modules, capability
   labels, and runner images are owned upstream by the GF core product, not
   by this overlay.
 - **Not proof inferred from runner pickup.** A site workflow picked up by ARC
-  on shared `tinyland-docker` proves only runner pickup. It does not prove GF
+  on shared `tinyland-docker` proves only `ARC_PICKUP`. It does not prove GF
   consumer-registry enrollment, cache use, or RBE use for either application
   spoke.
+- **Not "remote everything."** Future work is remote-first maintainer
+  validation. `LOCAL_COMPAT`, `ARC_PICKUP`, `REMOTE_CACHE`, and
+  `REMOTE_EXECUTION` are separate claims and must be reported separately using
+  the minimum receipts defined in `AGENTS.md`.
 - **No org-identity runner labels, ever.** Workflows in this org request
   shared `tinyland-*` capability labels only. A label like `woodshed-*` or
   `dsa-woodshed-*` is a forbidden shape regardless of provisioning state —
@@ -50,8 +56,8 @@ placeholders for everything that depends on TIN-2196's exit. See:
   reviewable App manifest for when provisioning opens.
 - [`docs/site-ruleset.md`](docs/site-ruleset.md) /
   [`docs/site-ruleset-draft.json`](docs/site-ruleset-draft.json) — a
-  ready-to-apply required-signatures ruleset for
-  `Jesssullivan/dsa-woodshed.space`, blocked on one operator identity check.
+  reviewable required-signatures draft for the site. It is not applied and is
+  not a repository-transfer prerequisite.
 
 ## Boundary
 
